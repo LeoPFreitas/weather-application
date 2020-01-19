@@ -9,7 +9,8 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Unable to find location', undefined)
         } else {
-            callback(undefined, body.daily.data[0].summary + ' A temperatura é de ' + body.currently.temperature + ' graus. Existe ' + body.currently.precipProbability + '% de chance de chuva.')
+            console.log(body.daily.data[0])
+            callback(undefined, `${body.daily.data[0].summary} A temperatura é de ${body.currently.temperature} graus Celsius. A máxima é de ${body.daily.data[0].temperatureHigh} graus Celsius e a mínima é de ${body.daily.data[0].temperatureLow} graus Celsius. Existe ${body.currently.precipProbability}% de chance de chuva.`)
         }
     })
 }
